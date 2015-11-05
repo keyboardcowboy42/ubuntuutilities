@@ -77,9 +77,10 @@ class installation:
     def pyidgsu(self):
         print("[!] Install Pyi Daung Su ZawGyi Decode Font")
         print("    You can view both Unicode and Zawgyi with this font")
+
         os.system("wget https://github.com/Hadesy2k/pyidgsufont/raw/master/ZawDecode1.0_for_Windows.ttf")
-        os.system("mkdir /home/hades/.fonts")
-        os.system("cp *.ttf /home/hades/.fonts")
+        os.system("mkdir ~/.fonts")
+        os.system("cp *.ttf ~/.fonts")
         print("[+] Pyi Daung Su Zawgyi decode font installed")
 
 
