@@ -138,12 +138,13 @@ if __name__ == "__main__":
 4: Sublime v<3.0>                   5: Network Tools
 6: Install Network Driver           7: PyiDaungSu Zawgyi Decode Font
 8: Remove Guest Login               9: Fix Brightness Control Shortcut
+					   10: Sys Update
 """)
     usr = input("Enter the option: ")
     if usr == 0:
         exit()
     if usr == 1:
-        installation().sysupdate()
+        installation().essentials()
     elif usr == 2:
         installation().aptupdate()
         installation().ccsm()
@@ -163,3 +164,5 @@ if __name__ == "__main__":
         modify().remove_guest()
     elif usr == 9:
         modify().fix_brightness_control()
+    elif usr == 10:
+    	modify().sysupdate()
