@@ -1,4 +1,5 @@
 #!/usr/bin/env python3
+#-*- coding: utf-8 -*-
 
 # Written By Hades.y2k
 # Nov 5 2015
@@ -10,17 +11,11 @@ import sys
 class installation:
     """ This class job is about installing programs
         and drivers """
-
     def __init__(self):
         pass
 
     def aptupdate(self):
         os.system("sudo apt-get update")
-
-    def sysupdate(self):
-        print("[!] Update/Upgrade Software Repositories")
-        os.system("sudo apt-get update && sudo apt-get upgrade")
-        print("[+] Update/Upgrade Complete")
 
     def essentials(self):
         os.system("clear")
@@ -40,17 +35,19 @@ class installation:
         print("     - Pinta")
         print("     - UGet")
         print("     - Chromium Web Browser")
-        os.system("sudo apt-get install ubuntu-restricted-extras unity-tweak-tool dconf-editor compizconfig-settings-manager htop openjdk-8-jdk virtualbox wine playonlinux steam vlc pinta uget chromium-browser")
+        print("		- dict <Online Dictionary>")
+        print("		- tlp")
+        os.system("sudo apt-get install -y ubuntu-restricted-extras unity-tweak-tool dconf-editor compizconfig-settings-manager htop openjdk-8-jdk virtualbox wine playonlinux steam vlc pinta uget chromium-browser dict tlp")
         print("[+] Installation Complete")
         
     def ccsm(self):
         print("[!] Compiz Config Settings Manager Installation")
-        os.system("sudo apt-get install compizconfig-settings-manager compiz-plugins-extra -y")
+        os.system("sudo apt-get install -y compizconfig-settings-manager compiz-plugins-extra")
         print("[+] Installation Complete")
         
     def gnome_tweak_tool(self):
         print("[!] Gnome Tweak Tool")
-        os.system("sudo apt-get install gnome-tweak-tool")
+        os.system("sudo apt-get install -y gnome-tweak-tool")
         print("[+] Installation Complete")
         
     def sublime3(self):
@@ -62,7 +59,7 @@ class installation:
     def networktools(self):
         print("[!] Network Tools")
         print("    Wireshark & Zenmap")
-        os.system("sudo apt-get install zenmap wireshark")
+        os.system("sudo apt-get install -y zenmap wireshark")
         print("[+] Installation Complete")
 
     def install_network_driver(self):
@@ -83,12 +80,26 @@ class installation:
         os.system("cp *.ttf ~/.fonts")
         print("[+] Pyi Daung Su Zawgyi decode font installed")
 
+    def gimp(self):
+    	print("[!] GIMP photo editor")
+    	os.system("sudo apt-get install -y gimp")
+    	print("[+] Installation Complete")
+
+   	def synaptic(self):
+   		print("[!] Synaptic Packages Manager")
+   		os.system("sudo apt-get install -y synaptic")
+   		print("[+] Installation Complete")
+
 
 class modify:
     """ This class job is about modifying the system settings """
-
     def __init__(self):
         pass
+    
+    def sysupdate(self):
+        print("[!] Update/Upgrade Software Repositories")
+        os.system("sudo apt-get update && sudo apt-get upgrade")
+        print("[+] Update/Upgrade Complete")
 
     def remove_guest(self):
         print("[!] This will remove guest login from Ubuntu Logan")
@@ -138,7 +149,8 @@ if __name__ == "__main__":
 4: Sublime v<3.0>                   5: Network Tools
 6: Install Network Driver           7: PyiDaungSu Zawgyi Decode Font
 8: Remove Guest Login               9: Fix Brightness Control Shortcut
-					   10: Sys Update
+10: Synaptic                       11: GIMP
+12: SYS Update
 """)
     usr = input("Enter the option: ")
     if usr == 0:
@@ -146,16 +158,13 @@ if __name__ == "__main__":
     if usr == 1:
         installation().essentials()
     elif usr == 2:
-        installation().aptupdate()
-        installation().ccsm()
+        installation().aptupdate(); installation().ccsm()
     elif usr == 3:
-        installation().aptupdate()
-        installation().gnome_tweak_tool()
+        installation().aptupdate(); installation().gnome_tweak_tool()
     elif usr == 4:
         installation().sublime3()
     elif usr == 5:
-        installation().aptupdate()
-        installation().networktools()
+        installation().aptupdate(); installation().networktools()
     elif usr == 6:
         installation().install_network_driver()
     elif usr == 7:
@@ -165,4 +174,8 @@ if __name__ == "__main__":
     elif usr == 9:
         modify().fix_brightness_control()
     elif usr == 10:
-    	modify().sysupdate()
+    	installation.aptupdate(); installation.synaptic()
+    elif usr == 11:
+    	installation.aptupdate(); installation.gimp()
+    elif usr == 12:
+    	modify.sysupdate()
