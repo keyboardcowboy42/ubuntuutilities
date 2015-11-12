@@ -84,11 +84,10 @@ class installation:
     	print("[!] GIMP photo editor")
     	os.system("sudo apt-get install -y gimp")
     	print("[+] Installation Complete")
-
-	def synaptic(self):
-		print("[!] Synaptic Packages Manager")
-		os.system("sudo apt-get install -y synaptic")
-		print("[+] Installation Complete")
+def synaptic(self):
+print("[!] Synaptic Packages Manager")
+os.system("sudo apt-get install -y synaptic")
+print("[+] Installation Complete")
 
 
 class modify:
